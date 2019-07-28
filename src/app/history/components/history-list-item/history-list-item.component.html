@@ -1,0 +1,10 @@
+<div class="history__row">
+    <div class="history__item history__item_date">{{model.FormattedDate}}</div>
+    <div class="history__item">{{model.NumberFrom}}</div>
+    <div class="history__item">{{model.NumberTo}}</div>
+    <div class="history__item">{{model.Amount}}</div>
+    <div class="history__item history__item_controls">
+        <button class="history__action history__action_repeat" type="button" (click)="toRepeatTransfer($event)">Повторить</button>
+        <button class="history__action history__action_delete" type="button" (click)="toDeleteTransfer($event)">Удалить</button>
+    </div>
+</div>

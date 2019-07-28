@@ -1,0 +1,30 @@
+.menu {
+
+    &__tab {
+        padding: 2rem 3rem;
+        width: auto;
+        min-width: 21.3rem;
+        height: auto;
+        font: bold 1.4rem/100% 'Nunito', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #353535;
+        white-space: nowrap;
+        text-align: center;
+        text-decoration: underline;
+        outline: unset;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+}
+
+// States
+.menu {
+
+    &__tab_active,
+    &__tab:hover {
+        background-color: #f4fbfb;
+        text-decoration: unset;
+    }
+
+}

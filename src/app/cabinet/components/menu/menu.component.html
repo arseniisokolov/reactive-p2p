@@ -1,0 +1,6 @@
+<ng-container *ngFor="let tab of tabs">
+  <a *ngIf="!tab.IsHidden" class="menu__tab {{tab.Action}}" [ngClass]="{'menu__tab_active': tab.IsActive}"
+    (click)="selectTab(tab, $event)">
+    {{tab.Title}}
+</a>
+</ng-container>

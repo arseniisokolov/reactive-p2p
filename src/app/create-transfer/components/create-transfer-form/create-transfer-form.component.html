@@ -1,0 +1,18 @@
+<div *ngIf="Model" class="transfer-form__inner">
+  <div class="transfer-form__cards">
+    <card-form class="transfer-form__card transfer-form__card_full" [model]="Model.CardFrom"></card-form>
+    <i class="transfer-form__figure fas fa-fighter-jet"></i>
+    <card-form class="transfer-form__card transfer-form__card_reduced" [model]="Model.CardTo"></card-form>
+  </div>
+  <form class="transfer-form__controls" [formGroup]="Model.Form" novalidate (ngSubmit)="submitForm()">
+    <div class="sum-group">
+      <label class="sum-group__caption" for="amount">
+        Введите сумму
+      </label>
+      <input class="sum-group__input" name="amount" formControlName="Amount" autocomplete="false"/>
+    </div>
+    <button type="input" class="transfer-form__action" [disabled]="!Model.IsValid">
+      Перевести
+    </button>
+  </form>
+</div>
