@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Helpers } from 'core-library/core/helpers';
+import { Helpers } from 'core-library/core/classes/helpers';
 import { HistoryListItemViewModel } from '../../view-models/history-list-item.view-model';
 
 @Component({

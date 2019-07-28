@@ -1,11 +1,11 @@
 import { FormControl, Validators } from '@angular/forms';
-import { FormViewModel } from 'core-library/core/view-models/form.view-model';
-import { Helpers } from 'core-library/core/helpers';
+import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
+import { Helpers } from 'core-library/core/classes/helpers';
 import { ICardTransfer } from '../../../data/card-transfer.interface';
 import { CardFormViewModel } from './card-form.view-model';
 
 
-export class TransferFormViewModel extends FormViewModel<ICardTransfer>{
+export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer>{
 
     public CardFrom: CardFormViewModel;
     public CardTo: CardFormViewModel;

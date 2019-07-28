@@ -1,5 +1,5 @@
 import { FormControl, Validators } from '@angular/forms';
-import { FormViewModel } from 'core-library/core/view-models/form.view-model';
+import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
 import { CardModel, ICardModel } from 'core-library/core/models/card.model';
 
 
@@ -8,7 +8,7 @@ const Constants = {
     maxDuration: 21,
 }
 
-export class CardFormViewModel extends FormViewModel<CardModel> {
+export class CardFormViewModel extends FormBaseViewModel<CardModel> {
 
     /** Краткая форма карты */
     public IsReducedMode: boolean;

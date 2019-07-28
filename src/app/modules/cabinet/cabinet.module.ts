@@ -7,7 +7,7 @@ import { TransferModule } from '../transfer/transfer.module';
 import { HistoryModule } from '../history/history.module';
 
 // components
-import { AuthorLogoComponent } from 'core-library/core/components/author-logo/author-logo.component';
+import { AuthorLogoComponent } from 'core-library/angular/components/author-logo/author-logo.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MenuListItemViewModel } from 'core-library/core/view-models/list-item.view-model';
-import { Helpers } from 'core-library/core/helpers';
+import { Helpers } from 'core-library/core/classes/helpers';
 
 @Component({
   selector: 'menu',

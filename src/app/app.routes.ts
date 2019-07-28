@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from 'core-library/core/components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from 'core-library/angular/components/page-not-found/page-not-found.component';
 
 export const appRoutes: Routes = [
     {
