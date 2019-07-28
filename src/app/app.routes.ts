@@ -9,7 +9,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'cabinet',
-        loadChildren: './cabinet/cabinet.module#CabinetModule'
+        loadChildren: './modules/cabinet/cabinet.module#CabinetModule'
     },
     {
         path: '**',

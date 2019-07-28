@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // modules
-import { ModalsModule } from 'core-library/modals/modals.module';
+import { ModalsModule } from 'core-library/angular/modals/modals.module';
 
 // components
 import { PageNotFoundComponent } from 'core-library/core/components/page-not-found/page-not-found.component';
-import { AppComponent } from './app.component';
+import { AppComponent } from './view/app.component';
 
 import { appRoutes } from './app.routes';
 
