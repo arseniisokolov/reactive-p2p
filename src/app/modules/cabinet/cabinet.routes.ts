@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { LayoutTabTransferComponent } from './components/layout/tabs/transfer/layout-tab-transfer.component';
-import { LayoutTabTimelineComponent } from './components/layout/tabs/timeline/layout-tab-timeline.component';
 import { CabinetLayoutComponent } from './components/layout/cabinet-layout.component';
 import { AppActionTypes } from '../../data/app-action-types.enum';
 
@@ -11,18 +9,27 @@ export const cabinetRoutes: Routes = [
         children: [
             {
                 path: '',
+                pathMatch: 'full',
                 redirectTo: 'create-transfer'
             },
+            // {
+            //     path: 'create-transfer',
+            //     component: LayoutTabTransferComponent,
+            //     data: { action: AppActionTypes.toCreateTransfer }
+            // },
             {
                 path: 'create-transfer',
-                component: LayoutTabTransferComponent,
-                data: { action: AppActionTypes.toCreateTransfer }
+                loadChildren: '../transfer/transfer.module#TransferModule',
             },
+            // {
+            //     path: 'timeline',
+            //     component: LayoutTabTimelineComponent,
+            //     data: { action: AppActionTypes.toTimeline }
+            // }
             {
                 path: 'timeline',
-                component: LayoutTabTimelineComponent,
-                data: { action: AppActionTypes.toTimeline }
-            }
+                loadChildren: '../history/history.module#HistoryModule'
+            },
         ]
     }
 ];

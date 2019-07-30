@@ -1,11 +1,12 @@
 import { FormControl, Validators } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
 import { Helpers } from 'core-library/core/classes/helpers';
 import { ICardTransfer } from '../../../data/card-transfer.interface';
 import { CardFormViewModel } from './card-form.view-model';
 
 
-export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer>{
+export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
 
     public CardFrom: CardFormViewModel;
     public CardTo: CardFormViewModel;
@@ -19,8 +20,9 @@ export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer>{
         this.CardTo = new CardFormViewModel();
         this.CardFrom.initialize({ title: 'Карта плательщика' });
         this.CardTo.initialize({ title: 'Карта получателя', isReduced: true });
-        super.initialize();
-        this.fromModel(data);
+        return super.initialize().pipe(
+            tap(() => this.fromModel(data))
+        );
     }
 
     public fromModel(data: ICardTransfer) {

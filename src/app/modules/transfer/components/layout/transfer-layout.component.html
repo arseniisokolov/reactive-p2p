@@ -2,5 +2,5 @@
   <div class="create-transfer__title">
     Введите данные для перевода
   </div>
-  <transfer-form [presetValue]="PresetTransfer" (onSuccess)="directToHistory()"></transfer-form>
+  <transfer-form [model]="Model" (onSubmit)="submitForm()"></transfer-form>
 </div>

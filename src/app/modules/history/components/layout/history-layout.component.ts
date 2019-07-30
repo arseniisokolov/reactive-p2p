@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './layout-tab-timeline.component.html',
-  styleUrls: ['./styles/layout-tab-timeline.component.scss']
+  templateUrl: './history-layout.component.html',
+  styleUrls: ['./styles/history-layout.component.scss']
 })
-export class LayoutTabTimelineComponent {
+export class HistoryLayoutComponent {
 
   constructor(
     private _router: Router

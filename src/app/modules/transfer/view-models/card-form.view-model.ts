@@ -1,4 +1,5 @@
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
 import { CardModel, ICardModel } from 'core-library/core/models/card.model';
 
@@ -15,10 +16,10 @@ export class CardFormViewModel extends FormBaseViewModel<CardModel> {
     public Title: string;
 
 
-    public initialize(config: ICardFormConfig) {
+    public initialize(config: ICardFormConfig): Observable<void> {
         this.IsReducedMode = config.isReduced;
         this.Title = config.title;
-        super.initialize();
+        return super.initialize();
     }
 
 
