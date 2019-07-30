@@ -21,9 +21,7 @@ import { cabinetRoutes } from './cabinet.routes';
     MenuComponent,
     AuthorLogoComponent,
   ],
-  exports: [
-    CabinetLayoutComponent,
-  ],
+  exports: [],
   imports: [
     CommonModule,
     RouterModule.forChild(cabinetRoutes),

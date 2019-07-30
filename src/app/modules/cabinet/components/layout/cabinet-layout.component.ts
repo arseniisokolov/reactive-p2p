@@ -17,6 +17,7 @@ export class CabinetLayoutComponent implements OnInit, OnDestroy {
   public MenuTabs: MenuListItemViewModel[] = [
     new MenuListItemViewModel(AppActionTypes.toCreateTransfer, "Новый перевод"),
     new MenuListItemViewModel(AppActionTypes.toTimeline, "История переводов"),
+    new MenuListItemViewModel(AppActionTypes.toMyCards, "Сохраненные карты"),
   ];
 
   private _unsubscriber = new Subject<void>();
@@ -42,6 +43,9 @@ export class CabinetLayoutComponent implements OnInit, OnDestroy {
         break;
       case AppActionTypes.toTimeline:
         this._router.navigate(['cabinet/timeline']);
+        break;
+      case AppActionTypes.toMyCards:
+        this._router.navigate(['cabinet/my-cards']);
         break;
     }
   }

@@ -2,4 +2,5 @@
 export enum AppActionTypes {
     toCreateTransfer = "toCreateTransfer",
     toTimeline = "toHistory",
+    toMyCards = "toMyCards",
 }

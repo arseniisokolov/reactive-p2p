@@ -19,9 +19,7 @@ import { transferRoutes } from './transfer.routes';
     TransferFormComponent,
     CardFormComponent
   ],
-  exports: [
-    TransferFormComponent,
-  ],
+  exports: [],
   imports: [
     RouterModule.forChild(transferRoutes),
     CommonModule,

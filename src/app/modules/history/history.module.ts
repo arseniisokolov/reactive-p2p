@@ -20,10 +20,7 @@ import { historyRoutes } from './history.routes';
     HistoryFilterComponent,
     HistoryListItemComponent
   ],
-  exports: [
-    HistoryListComponent,
-    HistoryFilterComponent,
-  ],
+  exports: [],
   imports: [
     RouterModule.forChild(historyRoutes),
     CommonModule
