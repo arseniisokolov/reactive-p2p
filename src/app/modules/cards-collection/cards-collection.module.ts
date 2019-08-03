@@ -5,27 +5,31 @@ import { RouterModule } from '@angular/router';
 
 // components
 import * as ListComponents from './list';
-import { MyCardsLayoutComponent } from './layout/my-cards-layout.component';
+import { CardsCollectionLayoutComponent } from './layout/cards-collection-layout.component';
 import { MyCardsEditFormComponent } from './edit-form/my-cards-edit-form.component';
 
 // services
+import { CardsCollectionService } from './data/cards-collection.service';
 
-import { myCardsRoutes } from './my-cards.routes';
+import { cardsCollectionRoutes } from './cards-collection.routes';
 
 
 @NgModule({
   declarations: [
-    ListComponents.MyCardsListComponent,
-    ListComponents.MyCardsListItemComponent,
+    ListComponents.CardsCollectionListComponent,
+    ListComponents.CardsCollectionListItemComponent,
     ListComponents.MyCardsListFilterComponent,
-    MyCardsLayoutComponent,
+    CardsCollectionLayoutComponent,
     MyCardsEditFormComponent,
   ],
   exports: [],
   imports: [
-    RouterModule.forChild(myCardsRoutes),
+    RouterModule.forChild(cardsCollectionRoutes),
     CommonModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    CardsCollectionService,
   ]
 })
-export class MyCardsModule { }
+export class CardsCollectionModule { }

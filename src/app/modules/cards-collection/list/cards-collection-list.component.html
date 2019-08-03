@@ -1,0 +1,12 @@
+<ng-container *ngIf="Model$ | async as Model">
+    <header>
+        <my-cards-list-filter></my-cards-list-filter>
+    </header>
+    <main>
+        <h2>Мои карты</h2>
+        <ng-container *ngFor="let item of Model.Items; let index = index">
+            <h2 *ngIf="index === Model.ContragentHeaderIndex">Кому я переводил</h2>
+            <cards-collection-list-item [model]="item"></cards-collection-list-item>
+        </ng-container>
+    </main>
+</ng-container>

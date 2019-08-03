@@ -22,7 +22,7 @@ export const cabinetRoutes: Routes = [
             },
             {
                 path: 'my-cards',
-                loadChildren: '../my-cards/my-cards.module#MyCardsModule'
+                loadChildren: '../cards-collection/cards-collection.module#CardsCollectionModule'
             },
         ]
     }
