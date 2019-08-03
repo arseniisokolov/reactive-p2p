@@ -4,7 +4,7 @@ import { TosterGlobalService } from 'core-library/angular/modals/data/toster/tos
 import { TosterTypes } from 'core-library/angular/modals/data/toster/toster-types.enum';
 import { TransferService } from '../../data/transfer.service';
 import { TransferFormViewModel } from '../../view-models/transfer-form.view-model';
-import { ICardTransfer } from '../../../../data/card-transfer.interface';
+import { ICardTransfer } from '../../../../core/card-transfer.interface';
 
 @Component({
   selector: 'transfer-form',

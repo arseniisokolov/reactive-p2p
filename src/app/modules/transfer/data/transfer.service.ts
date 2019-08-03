@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { LocalStorageAdapter } from 'core-library/core/services/local-storage.adapter';
-import { ICardTransfer } from '../../../data/card-transfer.interface';
-import { first, map } from 'rxjs/operators';
+import { ICardTransfer, ICardAddToCollection } from '../../../core/card-transfer.interface';
+import { first, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class TransferService {
 
-    private _localStorage: LocalStorageAdapter<ICardTransfer> = new LocalStorageAdapter();
+    private _localStorage: LocalStorageAdapter<{ id: string }> = new LocalStorageAdapter();
 
-    public send(transfer: ICardTransfer): Observable<void> {
-        return new Observable<void>(subscriber =>
-            this._localStorage.post('transfers', [transfer])
-                .subscribe(() => subscriber.next())
-        );
+    public handleNewTransfer(data: ICardTransfer & ICardAddToCollection): Observable<void> {
+        return this.sendTransfer(data).pipe(tap(() => this.saveCards(data)));
     }
 
-    public getTransfers(): Observable<ICardTransfer[]> {
-        return this._localStorage.get('transfers');
+    private sendTransfer(transfer: ICardTransfer): Observable<void> {
+        return this._localStorage.post('transfers', [transfer]);
+    }
+
+    private saveCards(data: ICardTransfer & ICardAddToCollection): void {
+        const cards = [];
+        if (data.isSaveSenderCard)
+            cards.push(data.senderCard);
+        if (data.isSaveContragentCard)
+            cards.push(data.contragentCard);
+        if (cards.length)
+            this._localStorage.post('cardsCollection', cards).subscribe();
     }
 
     public getTransferById(id: string): Observable<ICardTransfer> {
-        return this.getTransfers().pipe(
+        return this._localStorage.get('transfers').pipe(
             first(),
-            map(items => items.find(i => i.id === id))
+            map(items => items.find(i => i.id === id) as ICardTransfer)
         );
     }
 

@@ -44,7 +44,7 @@ export class CardFormViewModel extends FormBaseViewModel<CardModel> {
         const res: CardModel = new CardModel();
         res.Number = CardModel.implodeNumber([this.Form.value.NumberGroup1, this.Form.value.NumberGroup2, this.Form.value.NumberGroup3, this.Form.value.NumberGroup4]);
         if (!this.IsReducedMode) {
-            res.OwnerEmbossName = this.Form.value.OwnerEmbossName.toUpperCase();
+            res.OwnerEmbossName = this.Form.value.OwnerEmbossName.trim().toUpperCase();
             res.ExpireDate = CardModel.calculateExpire(this.Form.value.ExpireMonth, this.Form.value.ExpireYear);
         }
         return res;

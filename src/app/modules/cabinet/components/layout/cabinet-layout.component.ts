@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, NavigationStart, NavigationEnd } from '@angular
 import { Subject } from 'rxjs';
 
 import { MenuListItemViewModel } from 'core-library/core/view-models/list-item.view-model';
-import { AppActionTypes } from '../../../../data/app-action-types.enum';
+import { AppActionTypes } from '../../../../core/app-action-types.enum';
 import { takeUntil, filter } from 'rxjs/operators';
 
 @Component({

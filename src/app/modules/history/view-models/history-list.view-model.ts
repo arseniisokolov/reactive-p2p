@@ -1,6 +1,6 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Helpers } from 'core-library/core/classes/helpers';
-import { ICardTransfer } from '../../../data/card-transfer.interface';
+import { ICardTransfer } from '../../../core/card-transfer.interface';
 import { HistoryListItemViewModel } from './history-list-item.view-model';
 import { HistoryListFilterFormViewModel } from './history-list-filter-form.view-model';
 

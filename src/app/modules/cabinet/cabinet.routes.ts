@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CabinetLayoutComponent } from './components/layout/cabinet-layout.component';
-import { AppActionTypes } from '../../data/app-action-types.enum';
+import { AppActionTypes } from '../../core/app-action-types.enum';
 
 export const cabinetRoutes: Routes = [
     {

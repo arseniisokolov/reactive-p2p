@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 import { LocalStorageAdapter } from 'core-library/core/services/local-storage.adapter';
-import { ICardTransfer } from '../../../data/card-transfer.interface';
+import { ICardTransfer } from '../../../core/card-transfer.interface';
 
 @Injectable()
 export class HistoryService {

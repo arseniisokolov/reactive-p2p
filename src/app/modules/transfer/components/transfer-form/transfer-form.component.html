@@ -1,18 +1,30 @@
-<div *ngIf="model" class="transfer-form__inner">
-  <div class="transfer-form__cards">
-    <card-form class="transfer-form__card transfer-form__card_full" [model]="model.CardFrom"></card-form>
-    <i class="transfer-form__figure fas fa-fighter-jet"></i>
-    <card-form class="transfer-form__card transfer-form__card_reduced" [model]="model.CardTo"></card-form>
-  </div>
-  <form class="transfer-form__controls" [formGroup]="model.Form" novalidate (ngSubmit)="submitForm()">
-    <div class="sum-group">
-      <label class="sum-group__caption" for="amount">
-        Введите сумму
-      </label>
-      <input class="sum-group__input" name="amount" formControlName="Amount" autocomplete="false"/>
+<form *ngIf="model" class="transfer-form__inner" [formGroup]="model.Form" novalidate (ngSubmit)="submitForm()">
+    <div class="transfer-form__cards">
+        <div class="transfer-form__card">
+            <card-form [model]="model.SenderCard"></card-form>
+            <div class="tranfser-form__save-accept">
+                <input type="checkbox" name="AcceptSaveSenderCard" formControlName="AcceptSaveSenderCard" checked="true">
+                <label for="AcceptSaveSenderCard">Добавить карту в коллекцию</label>
+            </div>
+        </div>
+        <i class="transfer-form__figure fas fa-fighter-jet"></i>
+        <div class="transfer-form__card">
+            <card-form [model]="model.ContragentCard"></card-form>
+            <div class="tranfser-form__save-accept">
+                <input type="checkbox" name="AcceptSaveContragentCard" formControlName="AcceptSaveContragentCard">
+                <label for="AcceptSaveContragentCard">Добавить карту в коллекцию</label>
+            </div>
+        </div>
     </div>
-    <button type="input" class="transfer-form__action" [disabled]="!model.IsValid">
-      Перевести
-    </button>
-  </form>
-</div>
+    <div class="transfer-form__controls">
+        <div class="sum-group">
+            <label class="sum-group__caption" for="amount">
+                Введите сумму
+            </label>
+            <input class="sum-group__input" name="amount" formControlName="Amount" autocomplete="false" />
+        </div>
+        <button type="input" class="transfer-form__action" [disabled]="!model.IsValid">
+            Перевести
+        </button>
+    </div>
+</form>

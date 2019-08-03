@@ -7,7 +7,7 @@ import { ModalsModule } from 'core-library/angular/modals/modals.module';
 
 // components
 import { PageNotFoundComponent } from 'core-library/angular/components/page-not-found/page-not-found.component';
-import { AppComponent } from './view/app.component';
+import { AppComponent } from './app.component';
 
 import { appRoutes } from './app.routes';
 

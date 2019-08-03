@@ -1,5 +1,5 @@
 import { Helpers } from 'core-library/core/classes/helpers';
-import { ICardTransfer } from '../../../data/card-transfer.interface';
+import { ICardTransfer } from '../../../core/card-transfer.interface';
 
 export class HistoryListItemViewModel {
 
@@ -13,8 +13,8 @@ export class HistoryListItemViewModel {
         if (!data)
             return;
         this.Id = data.id;
-        this.NumberFrom = data.cardFrom.number;
-        this.NumberTo = data.cardTo.number;
+        this.NumberFrom = data.senderCard.number;
+        this.NumberTo = data.contragentCard.number;
         this.Amount = data.amount;
         this.FormattedDate = `${Helpers.getFormattedTime(data.docDate)}, ${Helpers.getFormattedDate(data.docDate)}`;
     }
