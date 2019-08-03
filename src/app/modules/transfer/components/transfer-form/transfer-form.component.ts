@@ -1,10 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { interval } from 'rxjs';
-import { TosterGlobalService } from 'core-library/angular/modals/data/toster/toster.global.service';
-import { TosterTypes } from 'core-library/angular/modals/data/toster/toster-types.enum';
-import { TransferService } from '../../data/transfer.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TransferFormViewModel } from '../../view-models/transfer-form.view-model';
-import { ICardTransfer } from '../../../../core/card-transfer.interface';
 
 @Component({
   selector: 'transfer-form',

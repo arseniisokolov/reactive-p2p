@@ -19,8 +19,8 @@ export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
     public initialize(data?: ICardTransfer): Observable<void> {
         this.SenderCard = new CardFormViewModel();
         this.ContragentCard = new CardFormViewModel();
-        this.SenderCard.initialize({ title: 'Карта плательщика' });
-        this.ContragentCard.initialize({ title: 'Карта получателя', isReduced: true });
+        this.SenderCard.initialize({ title: 'Карта плательщика', type: 'sender' });
+        this.ContragentCard.initialize({ title: 'Карта получателя', type: 'contragent' });
         return super.initialize().pipe(
             tap(() => this.fromModel(data))
         );
@@ -30,7 +30,7 @@ export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
         if (!data)
             return;
         super.fromModel(data);
-        this.Form.controls.Amount.setValue(data.amount);
+        this.Form.controls.Amount.setValue(data.amount, {});
         this.SenderCard.fromData(data.senderCard);
         this.ContragentCard.fromData(data.contragentCard);
     }
@@ -50,7 +50,7 @@ export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
     protected getControls(): { [key: string]: FormControl } {
         return {
             Amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1)]),
-            AcceptSaveSenderCard: new FormControl(),
+            AcceptSaveSenderCard: new FormControl(true),
             AcceptSaveContragentCard: new FormControl(),
         };
     }

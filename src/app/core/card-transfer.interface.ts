@@ -1,4 +1,4 @@
-import { ICardModel } from 'core-library/core/models/card.model';
+import { ICardData } from 'core-library/core/models/card/card.data';
 
 /** Перевод с карты на карту */
 export interface ICardTransfer {
@@ -6,9 +6,9 @@ export interface ICardTransfer {
     /** Идентификатор платежа */
     id: string;
     /** Карта отправителя */
-    senderCard: ICardModel;
+    senderCard: ICardData;
     /** Карта получателя */
-    contragentCard: ICardModel;
+    contragentCard: ICardData;
     /** Сумма перевода */
     amount: number;
     /** Дата документа о переводе */
