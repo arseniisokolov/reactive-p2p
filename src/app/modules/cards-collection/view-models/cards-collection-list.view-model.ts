@@ -12,7 +12,8 @@ export class CardsCollectionListViewModel {
     public get Items(): CardModel[] {
         return this._items || [];
     }
-    public ContragentHeaderIndex: number;
+
+    public _startOfContragentListIndex: number;
 
     private _isEmpty: boolean;
     private _items: CardModel[];
@@ -25,7 +26,11 @@ export class CardsCollectionListViewModel {
         this._items = cards.map(item => CardCreateStrategy.createFromData(item));
         Object.seal(this._items);
         this.sortItems();
-        this.ContragentHeaderIndex = this.Items.findIndex(i => i instanceof ContragentCardModel);
+        this._startOfContragentListIndex = this.Items.findIndex(i => i instanceof ContragentCardModel);
+    }
+
+    public isStartOfContragentList(index: number): boolean {
+        return index === this._startOfContragentListIndex;
     }
 
     private sortItems() {

@@ -3,17 +3,16 @@
         <div class="transfer-form__card">
             <card-form-sender [model]="model.SenderCard"></card-form-sender>
             <div class="tranfser-form__save-accept">
-                <input type="checkbox" name="AcceptSaveSenderCard" formControlName="AcceptSaveSenderCard"
-                    checked>
-                <label for="AcceptSaveSenderCard">Добавить карту в коллекцию</label>
+                <input type="checkbox" name="acceptSaveSenderCard" formControlName="AcceptSaveSenderCard">
+                <label for="acceptSaveSenderCard">Добавить карту в коллекцию</label>
             </div>
         </div>
         <i class="transfer-form__figure fas fa-fighter-jet"></i>
         <div class="transfer-form__card">
             <card-form-contragent [model]="model.ContragentCard"></card-form-contragent>
             <div class="tranfser-form__save-accept">
-                <input type="checkbox" name="AcceptSaveContragentCard" formControlName="AcceptSaveContragentCard">
-                <label for="AcceptSaveContragentCard">Добавить карту в коллекцию</label>
+                <input type="checkbox" name="acceptSaveContragentCard" formControlName="AcceptSaveContragentCard">
+                <label for="acceptSaveContragentCard">Добавить карту в коллекцию</label>
             </div>
         </div>
     </div>

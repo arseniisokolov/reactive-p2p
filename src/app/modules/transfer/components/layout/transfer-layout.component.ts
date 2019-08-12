@@ -7,6 +7,7 @@ import { TosterTypes } from 'core-library/angular/modals/data/toster/toster-type
 import { ICardTransfer } from '../../../../core/card-transfer.interface';
 import { TransferService } from '../../data/transfer.service';
 import { TransferFormViewModel } from '../../view-models/transfer-form.view-model';
+import { forkJoin } from 'rxjs';
 
 @Component({
     templateUrl: './transfer-layout.component.html',
@@ -30,7 +31,7 @@ export class TransferLayoutComponent implements OnInit {
             .pipe(first())
             .subscribe(params => {
                 this.Model = new TransferFormViewModel();
-                this.initializeStrategy(params.id).subscribe(() => {
+                this.initializeStrategy(params).subscribe(() => {
                     this.Loading = false;
                 }, (error: any) => {
                     if (isDevMode())
@@ -49,9 +50,11 @@ export class TransferLayoutComponent implements OnInit {
         });
     }
 
-    private initializeStrategy(id?: string) {
+    private initializeStrategy({ id, srcId, tgtId }: { id?: string, srcId?: string, tgtId?: string }) {
         if (id)
             return this.initializeWithHistory(id);
+        if (srcId)
+            return this.initializeWithCards(srcId, tgtId);
         return this.initialize();
     }
 
@@ -63,10 +66,22 @@ export class TransferLayoutComponent implements OnInit {
         return this._transferService.getTransferById(id)
             .pipe(
                 finalize(() => this.Loading = false),
-                switchMap((transfer: ICardTransfer) => {
-                    return this.Model.initialize(transfer);
+                switchMap((savedTransfer: ICardTransfer) => {
+                    return this.Model.initialize({ savedTransfer });
                 })
             );
+    }
+
+    private initializeWithCards(srcId: string, tgtId: string) {
+        return forkJoin(
+            this._transferService.getCardFromCollection(srcId),
+            this._transferService.getCardFromCollection(tgtId)
+        ).pipe(
+            finalize(() => this.Loading = false),
+            switchMap(([senderCard, contragentCard]) => {
+                return this.Model.initialize({ senderCard, contragentCard });
+            })
+        )
     }
 
     private directToHistory() {

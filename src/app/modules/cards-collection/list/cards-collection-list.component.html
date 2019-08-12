@@ -5,7 +5,9 @@
     <main>
         <h2>Мои карты</h2>
         <ng-container *ngFor="let item of Model.Items; let index = index">
-            <h2 *ngIf="index === Model.ContragentHeaderIndex">Кому я переводил</h2>
+            <h2 *ngIf="Model.isStartOfContragentList(index)">
+                Кому я переводил
+            </h2>
             <cards-collection-list-item [model]="item"></cards-collection-list-item>
         </ng-container>
     </main>

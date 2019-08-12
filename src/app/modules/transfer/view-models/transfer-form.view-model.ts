@@ -1,32 +1,39 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
 import { Helpers } from 'core-library/core/classes/helpers';
 import { ICardTransfer, ICardAddToCollection } from '../../../core/card-transfer.interface';
 import { CardFormViewModel } from './card-form.view-model';
+import { ICardData } from 'core-library/core/models/card/card.data';
 
+export type TransferInitStateType = {
+    savedTransfer?: ICardTransfer;
+    senderCard?: ICardData;
+    contragentCard?: ICardData;
+};
 
 export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
 
     public SenderCard: CardFormViewModel;
     public ContragentCard: CardFormViewModel;
 
+    private _initState: TransferInitStateType;
+
     public get IsValid(): boolean {
         return this.Form.valid && this.SenderCard.Form.valid && this.ContragentCard.Form.valid;
     }
 
-    public initialize(data?: ICardTransfer): Observable<void> {
+    public initialize(initState?: TransferInitStateType): Observable<void> {
+        this._initState = initState;
+        Object.freeze(this._initState);
         this.SenderCard = new CardFormViewModel();
         this.ContragentCard = new CardFormViewModel();
         this.SenderCard.initialize({ title: 'Карта плательщика', type: 'sender' });
         this.ContragentCard.initialize({ title: 'Карта получателя', type: 'contragent' });
-        return super.initialize().pipe(
-            tap(() => this.fromModel(data))
-        );
+        return super.initialize();
     }
 
-    public fromModel(data: ICardTransfer) {
+    protected fromModel(data: ICardTransfer) {
         if (!data)
             return;
         super.fromModel(data);
@@ -42,17 +49,34 @@ export class TransferFormViewModel extends FormBaseViewModel<ICardTransfer> {
             senderCard: this.SenderCard.toData(),
             contragentCard: this.ContragentCard.toData(),
             docDate: new Date().toString(),
-            isSaveSenderCard: this.Form.value.AcceptSaveSenderCard,
-            isSaveContragentCard: this.Form.value.AcceptSaveContragentCard,
+            isSaveSender: this.Form.value.AcceptSaveSenderCard,
+            isSaveContragent: this.Form.value.AcceptSaveContragentCard,
         };
     }
 
     protected getControls(): { [key: string]: FormControl } {
         return {
             Amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1)]),
-            AcceptSaveSenderCard: new FormControl(true),
+            AcceptSaveSenderCard: new FormControl(),
             AcceptSaveContragentCard: new FormControl(),
         };
+    }
+
+    protected handleInitState() {
+        if (!this._initState)
+            return;
+        this.fromModel(this._initState.savedTransfer);
+        this.SenderCard.fromData(this._initState.senderCard);
+        this.ContragentCard.fromData(this._initState.contragentCard);
+    }
+
+    protected onInit() {
+        this.Form.controls.AcceptSaveSenderCard.valueChanges.subscribe((value: boolean) => {
+            value ? this.SenderCard.allowAliasEditing() : this.SenderCard.disallowAliasEditing();
+        });
+        this.Form.controls.AcceptSaveContragentCard.valueChanges.subscribe((value: boolean) => {
+            value ? this.ContragentCard.allowAliasEditing() : this.ContragentCard.disallowAliasEditing();
+        });
     }
 
 }

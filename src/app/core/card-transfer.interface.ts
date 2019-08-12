@@ -17,6 +17,6 @@ export interface ICardTransfer {
 }
 
 export interface ICardAddToCollection {
-    isSaveSenderCard: boolean;
-    isSaveContragentCard: boolean;
+    isSaveSender: boolean;
+    isSaveContragent: boolean;
 }

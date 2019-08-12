@@ -45,11 +45,14 @@ class SenderCardFormState implements ICardFormState {
         this._form.Form.controls.ExpireMonth.setValue(expDate.month);
         this._form.Form.controls.ExpireYear.setValue(expDate.year);
         this._form.Form.controls.OwnerEmbossName.setValue(data.OwnerEmbossName);
+        if (data.Alias)
+            this._form.Form.controls.Alias.setValue(data.Alias);
     }
 
     public toModel(): CardModel {
         const res: SenderCardModel = new SenderCardModel();
         res.Number = CardModel.implodeNumber([this._form.Form.value.NumberGroup1, this._form.Form.value.NumberGroup2, this._form.Form.value.NumberGroup3, this._form.Form.value.NumberGroup4]);
+        res.Alias = this._form.Form.value.Alias;
         res.OwnerEmbossName = this._form.Form.value.OwnerEmbossName.trim().toUpperCase();
         res.ExpireDate = CardModel.calculateExpire(this._form.Form.value.ExpireMonth, this._form.Form.value.ExpireYear);
         return res;
@@ -57,6 +60,7 @@ class SenderCardFormState implements ICardFormState {
 
     public getControls(): { [key: string]: FormControl } {
         return {
+            "Alias": new FormControl({ value: this._form.Title, disabled: true }),
             "NumberGroup1": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
             "NumberGroup2": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
             "NumberGroup3": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
@@ -85,16 +89,20 @@ class ContragentCardFormState implements ICardFormState {
         this._form.Form.controls.NumberGroup2.setValue(expNumber[1]);
         this._form.Form.controls.NumberGroup3.setValue(expNumber[2]);
         this._form.Form.controls.NumberGroup4.setValue(expNumber[3]);
+        if (data.Alias)
+            this._form.Form.controls.Alias.setValue(data.Alias);
     }
 
     public toModel(): CardModel {
         const res: ContragentCardModel = new ContragentCardModel();
         res.Number = CardModel.implodeNumber([this._form.Form.value.NumberGroup1, this._form.Form.value.NumberGroup2, this._form.Form.value.NumberGroup3, this._form.Form.value.NumberGroup4]);
+        res.Alias = this._form.Form.value.Alias;
         return res;
     }
 
     public getControls(): { [key: string]: FormControl } {
         return {
+            "Alias": new FormControl({ value: this._form.Title, disabled: true }),
             "NumberGroup1": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
             "NumberGroup2": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
             "NumberGroup3": new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(4), Validators.maxLength(4)]),
@@ -121,7 +129,7 @@ export class CardFormViewModel extends FormBaseViewModel<CardModel> {
     }
 
 
-    public fromModel(data: CardModel) {
+    protected fromModel(data: CardModel) {
         if (!data)
             return;
         super.fromModel(data);
@@ -152,6 +160,22 @@ export class CardFormViewModel extends FormBaseViewModel<CardModel> {
             validYears.push(resItem);
         }
         return validYears;
+    }
+
+    public allowAliasEditing() {
+        const aliasControl = this.Form.controls.Alias;
+        aliasControl.setValidators([Validators.required]);
+        aliasControl.enable();
+        aliasControl.setValue('');
+        aliasControl.updateValueAndValidity();
+    }
+
+    public disallowAliasEditing() {
+        const aliasControl = this.Form.controls.Alias;
+        aliasControl.setValidators([]);
+        aliasControl.setValue(this.Title);
+        aliasControl.disable();
+        aliasControl.updateValueAndValidity();
     }
 
     protected getControls(): { [key: string]: FormControl } {
