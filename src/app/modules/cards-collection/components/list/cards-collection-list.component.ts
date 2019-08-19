@@ -22,10 +22,12 @@ export class CardsCollectionListComponent implements OnInit {
 
     public ngOnInit() {
         const vm = new CardsCollectionListViewModel();
-        this.Model$ = this._cardsCollectionService.getCards().pipe(map(cards => {
-            vm.initialize(cards);
-            return vm;
-        }));
+        this.Model$ = this._cardsCollectionService.getCards().pipe(
+            map(cards => {
+                vm.initialize(cards);
+                return vm;
+            })
+        );
     }
 
 }

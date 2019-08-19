@@ -1,0 +1,13 @@
+.list {
+	height: 100%;
+	width: 100%;
+
+	&__item {
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	&__group-title {
+		margin-bottom: 2rem;
+	}
+}

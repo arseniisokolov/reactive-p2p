@@ -6,8 +6,10 @@
         <div class="history__item">Сумма</div>
         <div class="history__item history__item_controls">Действие</div>
     </div>
-    <history-list-item *ngFor="let item of Model.Items" class="history__row" 
-        [model]="item" (onRepeat)="repeatTransfer($event)" (onDelete)="deleteTransfer($event)"></history-list-item>
+    <div class="history__lines-wrapper">
+        <history-list-item *ngFor="let item of Model.Items" class="history__row" [model]="item"
+            (onRepeat)="repeatTransfer($event)" (onDelete)="deleteTransfer($event)"></history-list-item>
+    </div>
 </div>
 <div class="history__inner history__inner_empty" *ngIf="!Model.Items.length">
     Не проведено ни одной операции
