@@ -4,9 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 // components
-import * as ListComponents from './list';
-import { CardsCollectionLayoutComponent } from './layout/cards-collection-layout.component';
-import { MyCardsEditFormComponent } from './edit-form/my-cards-edit-form.component';
+import * as ListComponents from './components/list';
+import { CardsCollectionLayoutComponent } from './components/layout/cards-collection-layout.component';
+import { MyCardsEditFormComponent } from './components/edit-form/my-cards-edit-form.component';
 
 // services
 import { CardsCollectionService } from './data/cards-collection.service';

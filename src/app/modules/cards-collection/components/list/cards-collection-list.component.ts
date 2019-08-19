@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CardsCollectionListViewModel } from '../view-models/cards-collection-list.view-model';
-import { CardsCollectionService } from '../data/cards-collection.service';
 import { map } from 'rxjs/operators';
+import { CardsCollectionListViewModel } from '../../view-models/cards-collection-list.view-model';
+import { CardsCollectionService } from '../../data/cards-collection.service';
 
 @Component({
     selector: 'cards-collection-list',

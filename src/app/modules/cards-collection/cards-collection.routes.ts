@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { CardsCollectionLayoutComponent } from './layout/cards-collection-layout.component';
-import { MyCardsEditFormComponent } from './edit-form/my-cards-edit-form.component';
+import { CardsCollectionLayoutComponent } from './components/layout/cards-collection-layout.component';
+import { MyCardsEditFormComponent } from './components/edit-form/my-cards-edit-form.component';
 
 export const cardsCollectionRoutes: Routes = [
     {
