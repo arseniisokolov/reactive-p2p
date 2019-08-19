@@ -1,0 +1,115 @@
+.card-form {
+	&__inner {
+		width: 100%;
+		height: 25rem;
+		padding: 3rem 2rem;
+		background-color: white;
+		border-radius: 2rem;
+		box-shadow: 0 2px 2px #9c9c9c;
+	}
+
+	&__form {
+		width: 100%;
+		height: auto;
+	}
+
+	&__title {
+		font: bold 2rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #2dbdb6;
+		margin-bottom: 3rem;
+	}
+
+	&__caption {
+		display: block;
+		font: 400 1.2rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #2dbdb6;
+	}
+
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 100%;
+		height: auto;
+		margin-top: 1.5rem;
+	}
+
+	&__number-group {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+    }
+    
+    &__field-group {
+		margin-right: 3%;
+	}
+
+	&__number-group > &__field {
+		margin-right: 3%;
+		width: 23%;
+	}
+
+	&__field-group_number {
+		width: 100%;
+	}
+
+	&__field-group_name {
+		flex: 1 1 60%;
+	}
+
+	&__field-group_name > &__field {
+		text-transform: uppercase;
+	}
+
+	&__field-group_date {
+		flex: 1 1 15%;
+    }
+
+	&__field {
+		height: 2.5em;
+		width: 100%;
+		margin-top: 0.5rem;
+		padding: 0.5em;
+		border: 2px solid #9c9c9c;
+		border-radius: 0.8rem;
+		outline: unset;
+		font: bold 1.7rem/100% "Nunito", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #353535;
+		transition: 0.5s;
+    }
+    
+    &__field_alias {
+        flex: 1 1 60%;
+        border: none;
+        padding: 0;
+    }
+}
+
+.card-form {
+	&__field-group:last-of-type,
+	&__number-group > &__field:last-of-type {
+		margin-right: unset;
+	}
+
+	&__field.ng-touched.ng-invalid {
+		border-color: #f33a35;
+	}
+	&__field_alias.ng-touched.ng-invalid::placeholder {
+		color: #f33a35;
+	}
+
+	&__field.ng-valid {
+		border-color: #2dbdb6;
+	}
+
+	&__field:focus {
+		border-color: #353535;
+    }
+    
+    &__field:disabled {
+        background-color: transparent;
+    }
+}

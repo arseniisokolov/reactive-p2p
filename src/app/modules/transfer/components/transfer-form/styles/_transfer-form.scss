@@ -1,0 +1,78 @@
+.transfer-form {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		height: 100%;
+		width: 100%;
+	}
+
+	&__cards {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: auto;
+	}
+
+	&__card {
+		width: 40%;
+		height: auto;
+	}
+
+	&__controls {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		width: 100%;
+		height: auto;
+		margin-top: 4rem;
+	}
+
+	&__action {
+		width: 8em;
+		height: 4.5rem;
+		margin-left: 3rem;
+		font: bold 2rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		text-transform: uppercase;
+		text-align: center;
+		color: white;
+		background: #2dbdb6;
+		border: unset;
+		border-radius: 0.8rem;
+		cursor: pointer;
+		transition: 0.5s;
+	}
+
+	&__figure {
+		font: 100 8rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #9c9c9c;
+		margin: 0 2rem;
+	}
+
+	&__save-accept {
+		margin-top: 1rem;
+		font: 400 1.2rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #2dbdb6;
+	}
+}
+
+// States
+.transfer-form {
+	&__action:not(:disabled):hover {
+		transform: scale(1.05);
+	}
+
+	&__action:active {
+		background: #209b95;
+	}
+
+	&__action:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+}

@@ -1,0 +1,14 @@
+<div *ngIf="Model$ | async as Model" class="layout">
+    <header class="layout__filter">
+        <my-cards-list-filter></my-cards-list-filter>
+    </header>
+    <main class="layout__list list">
+        <h2 class="list__group-title">Мои карты</h2>
+        <ng-container *ngFor="let item of Model.Items; let index = index">
+            <h2 class="list__group-title" *ngIf="Model.isStartOfContragentList(index)">
+                Кому я переводил
+            </h2>
+            <cards-collection-list-item class="list__item" [model]="item"></cards-collection-list-item>
+        </ng-container>
+    </main>
+</div>

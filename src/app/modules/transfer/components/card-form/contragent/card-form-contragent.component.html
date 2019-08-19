@@ -1,0 +1,7 @@
+<div *ngIf="model" class="card-form__inner">
+  <card-form-alias-section class="card-form__title" [model]="model"></card-form-alias-section>
+  <form class="card-form__form" [formGroup]="model.Form" novalidate>
+    <card-form-number-section class="card-form__field-group card-form__field-group_number" [model]="model">
+    </card-form-number-section>
+  </form>
+</div>

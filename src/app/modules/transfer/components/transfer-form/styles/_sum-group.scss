@@ -1,0 +1,37 @@
+.sum-group {
+	&__input {
+		height: 2.5em;
+		width: 20rem;
+		margin-top: 0.5rem;
+		padding: 0.5em;
+		border: 2px solid #9c9c9c;
+		border-radius: 0.8rem;
+		outline: unset;
+		font: bold 1.7rem/100% "Nunito", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #353535;
+		transition: 0.5s;
+	}
+
+	&__caption {
+		display: block;
+		font: 400 1.2rem/100% "Poppins", sans-serif;
+		-webkit-font-smoothing: antialiased;
+		color: #2dbdb6;
+	}
+}
+
+// States
+.sum-group {
+	&__input.ng-touched.ng-invalid {
+		border-color: #f33a35;
+	}
+
+	&__input.ng-valid {
+		border-color: #2dbdb6;
+	}
+
+	&__input:focus {
+		border-color: #353535;
+	}
+}

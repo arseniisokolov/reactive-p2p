@@ -1,0 +1,11 @@
+<div class="layout__wrapper">
+  <div class="layout__inner">
+    <header class="layout__header">
+      <menu menu-block [tabs]="MenuTabs" (onAction)="handleMenuAction($event)"></menu>
+    </header>
+    <div class="layout__outlet">
+      <router-outlet></router-outlet>
+    </div>
+    <footer class="layout__footer"></footer>
+  </div>
+</div>
