@@ -1,8 +1,8 @@
-import { CardModel } from 'core-library/core/models/card/card.base.model';
-import { ICardData } from 'core-library/core/models/card/card.data';
-import { SenderCardModel } from 'core-library/core/models/card/sender-card.model';
-import { ContragentCardModel } from 'core-library/core/models/card/contragent-card.model';
-import { CardCreateStrategy } from 'core-library/core/models/card/card-create-strategy';
+import { CardModel } from '../../../core/core/models/card/card.base.model';
+import { ICardData } from '../../../core/core/models/card/card.data';
+import { SenderCardModel } from '../../../core/core/models/card/sender-card.model';
+import { ContragentCardModel } from '../../../core/core/models/card/contragent-card.model';
+import { CardCreateStrategy } from '../../../core/core/models/card/card-create-strategy';
 
 export class CardsCollectionListViewModel {
 

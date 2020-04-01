@@ -1,10 +1,10 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
-import { CardModel } from 'core-library/core/models/card/card.base.model';
-import { SenderCardModel } from 'core-library/core/models/card/sender-card.model';
-import { ContragentCardModel } from 'core-library/core/models/card/contragent-card.model';
-import { ICardData } from 'core-library/core/models/card/card.data';
+import { FormBaseViewModel } from '../../../core/core/view-models/form.base.view-model';
+import { CardModel } from '../../../core/core/models/card/card.base.model';
+import { SenderCardModel } from '../../../core/core/models/card/sender-card.model';
+import { ContragentCardModel } from '../../../core/core/models/card/contragent-card.model';
+import { ICardData } from '../../../core/core/models/card/card.data';
 
 const Constants = {
     /** Максимальный возможный срок действия карты, лет (с текущего года) */

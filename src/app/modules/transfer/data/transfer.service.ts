@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { LocalStorageAdapter } from 'core-library/core/services/local-storage.adapter';
+import { LocalStorageAdapter } from '../../../core/core/services/local-storage.adapter';
 import { ICardTransfer, ICardAddToCollection } from '../../../core/card-transfer.interface';
 import { first, map, tap } from 'rxjs/operators';
-import { ICardData } from 'core-library/core/models/card/card.data';
+import { ICardData } from '../../../core/core/models/card/card.data';
 
 @Injectable()
 export class TransferService {

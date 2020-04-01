@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 // modules
 
 // components
-import { AuthorLogoComponent } from 'core-library/angular/components/author-logo/author-logo.component';
+import { AuthorLogoComponent } from '../../core/angular/components/author-logo/author-logo.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';

@@ -1,16 +1,18 @@
-<div *ngIf="Model.Items.length" class="history__inner">
-    <div class="history__row history__row_head">
-        <div class="history__item history__item_date">Дата выполнения</div>
-        <div class="history__item">Карта плательщика</div>
-        <div class="history__item">Карта получателя</div>
-        <div class="history__item">Сумма</div>
-        <div class="history__item history__item_controls">Действие</div>
+<ng-container *ngIf="Items$ | async as Items">
+    <div *ngIf="Items.length" class="history__inner">
+        <div class="history__row history__row_head">
+            <div class="history__item history__item_date">Дата выполнения</div>
+            <div class="history__item">Карта плательщика</div>
+            <div class="history__item">Карта получателя</div>
+            <div class="history__item">Сумма</div>
+            <div class="history__item history__item_controls">Действие</div>
+        </div>
+        <div class="history__lines-wrapper">
+            <history-list-item *ngFor="let item of Items.reverse()" class="history__row" [model]="item"
+                (onRepeat)="repeatTransfer($event)" (onDelete)="deleteTransfer($event)"></history-list-item>
+        </div>
     </div>
-    <div class="history__lines-wrapper">
-        <history-list-item *ngFor="let item of Model.Items" class="history__row" [model]="item"
-            (onRepeat)="repeatTransfer($event)" (onDelete)="deleteTransfer($event)"></history-list-item>
+    <div *ngIf="!Items.length" class="history__inner history__inner_empty">
+        Не проведено ни одной операции
     </div>
-</div>
-<div class="history__inner history__inner_empty" *ngIf="!Model.Items.length">
-    Не проведено ни одной операции
-</div>
+</ng-container>

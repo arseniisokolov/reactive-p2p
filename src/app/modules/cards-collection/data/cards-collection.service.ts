@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LocalStorageAdapter } from 'core-library/core/services/local-storage.adapter';
-import { ICardData } from 'core-library/core/models/card/card.data';
+import { LocalStorageAdapter } from '../../../core/core/services/local-storage.adapter';
+import { ICardData } from '../../../core/core/models/card/card.data';
 
 @Injectable()
 export class CardsCollectionService {

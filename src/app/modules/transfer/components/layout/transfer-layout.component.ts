@@ -2,8 +2,8 @@ import { Component, OnInit, isDevMode } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first, finalize, switchMap } from 'rxjs/operators';
 
-import { TosterGlobalService } from 'core-library/angular/modals/data/toster/toster.global.service';
-import { TosterTypes } from 'core-library/angular/modals/data/toster/toster-types.enum';
+import { TosterGlobalService } from '../../../../core/angular/modals/data/toster/toster.global.service';
+import { TosterTypes } from '../../../../core/angular/modals/data/toster/toster-types.enum';
 import { ICardTransfer } from '../../../../core/card-transfer.interface';
 import { TransferService } from '../../data/transfer.service';
 import { TransferFormViewModel } from '../../view-models/transfer-form.view-model';

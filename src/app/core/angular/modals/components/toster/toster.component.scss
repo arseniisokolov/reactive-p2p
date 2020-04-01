@@ -1,0 +1,52 @@
+.toster {
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    min-width: 300px;
+    height: auto;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    &__title {
+        width: 100%;
+        height: auto;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    &__message {
+        width: 100%;
+        height: auto;
+        font-size: 1rem;
+        color: white;
+    }
+
+}
+
+/* States */
+.toster {
+
+    &__title.type-info {
+        color: rgb(78, 78, 255);
+    }
+    
+    &__title.type-good {
+        color: rgb(60, 201, 60);
+    }
+    
+    &__title.type-warning {
+        color: rgb(241, 180, 47);
+    }
+    
+    &__title.type-error {
+        color: rgb(207, 46, 46);
+    }
+
+}

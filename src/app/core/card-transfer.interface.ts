@@ -1,4 +1,4 @@
-import { ICardData } from 'core-library/core/models/card/card.data';
+import { ICardData } from './core/models/card/card.data';
 
 /** Перевод с карты на карту */
 export interface ICardTransfer {

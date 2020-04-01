@@ -1,0 +1,4 @@
+<div *ngIf="Model && IsVisible" class="toster" [@fadeInOut]="Model && IsVisible">
+    <div class="toster__title {{Model.TypeCssClass}}">{{Model.Title}}</div>
+    <div class="toster__message">{{Model.Message}}</div>
+</div>

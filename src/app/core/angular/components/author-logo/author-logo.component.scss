@@ -1,0 +1,16 @@
+@import 'common/styles/variables';
+@import 'common/styles/blocks';
+
+.author-logo {
+
+    width: 100%;
+    height: auto;
+    font-family: $base-font;
+    color: $base-color;
+
+    &__title {
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+}

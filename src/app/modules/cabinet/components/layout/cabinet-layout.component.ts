@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs';
 
-import { MenuListItemViewModel } from 'core-library/core/view-models/list-item.view-model';
+import { MenuListItemViewModel } from '../../../../core/core/view-models/list-item.view-model';
 import { AppActionTypes } from '../../../../core/app-action-types.enum';
 import { takeUntil, filter } from 'rxjs/operators';
 

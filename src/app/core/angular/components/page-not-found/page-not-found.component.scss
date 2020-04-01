@@ -1,0 +1,29 @@
+@import 'common/styles/variables';
+@import 'common/styles/blocks';
+
+.page-not-found {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: $base-font;
+    color: $base-color;
+
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    &__caption {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    &__link {
+        font-size: 2rem;
+        color: $accent-color;
+        cursor: pointer;
+    }
+}

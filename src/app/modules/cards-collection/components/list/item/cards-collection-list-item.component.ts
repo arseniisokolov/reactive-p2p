@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardModel } from 'core-library/core/models/card/card.base.model';
+import { CardModel } from '../../../../../core/core/models/card/card.base.model';
 
 @Component({
   selector: 'cards-collection-list-item',

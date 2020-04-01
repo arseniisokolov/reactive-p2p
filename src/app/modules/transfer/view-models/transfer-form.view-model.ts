@@ -1,10 +1,10 @@
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { FormBaseViewModel } from 'core-library/core/view-models/form.base.view-model';
-import { Helpers } from 'core-library/core/classes/helpers';
+import { FormBaseViewModel } from '../../../core/core/view-models/form.base.view-model';
+import { Helpers } from '../../../core/core/classes/helpers';
 import { ICardTransfer, ICardAddToCollection } from '../../../core/card-transfer.interface';
 import { CardFormViewModel } from './card-form.view-model';
-import { ICardData } from 'core-library/core/models/card/card.data';
+import { ICardData } from '../../../core/core/models/card/card.data';
 
 export type TransferInitStateType = {
     savedTransfer?: ICardTransfer;

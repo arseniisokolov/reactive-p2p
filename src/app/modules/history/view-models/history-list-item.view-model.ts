@@ -1,4 +1,4 @@
-import { Helpers } from 'core-library/core/classes/helpers';
+import { Helpers } from '../../../core/core/classes/helpers';
 import { ICardTransfer } from '../../../core/card-transfer.interface';
 
 export class HistoryListItemViewModel {
